@@ -1,22 +1,21 @@
 import pygame 
 from pygame.locals import *
 
-class Sopa:
+class Sopa(pygame.sprite.Sprite):
     def __init__(self, largura):
-        self.altura_sopa = 120
-        self.largura_sopa = 170
-        self.x = largura/ 2 - self.largura_sopa
-        self.y = 600
 
-    def desenhar_sopa(self, tela):
-        pygame.draw.rect(tela, (255, 255, 0), (self.x, self.y, self.largura_sopa, self.altura_sopa))
+        super().__init__()
 
-    def movimentacao_sopa(self):
+        imagem = pygame.image.load('imagens/panela.png').convert_alpha()
+        self.image = pygame.transform.smoothscale(imagem, (233, 175))
+        self.rect = self.image.get_rect()
+
+        self.rect.centerx = largura / 2
+        y = 600
+        self.rect.y = y
+
+    def update(self):
         if pygame.key.get_pressed()[K_a]:
-            self.x = self.x - 0.4
+            self.rect.x = self.rect.x - 1
         if pygame.key.get_pressed()[K_d]:
-            self.x = self.x + 0.4
-    
-    def get_rect(self):
-        return pygame.Rect(self.x, self.y, self.largura_sopa, self.altura_sopa)
-    
+            self.rect.x = self.rect.x + 1

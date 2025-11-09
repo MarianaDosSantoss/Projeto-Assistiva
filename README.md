@@ -19,4 +19,4 @@ O principal objetivo do jogo é **estimular o letramento** por meio da interaç�
 
 ## 🛠️ Tecnologias utilizadas
 - 🐍 **Python**
-- - 🎮 **Pygame** 
+- 🎮 **Pygame** 
